@@ -12,16 +12,10 @@
 const firebaseConfig = {
   apiKey: "AIzaSyBeeOEOf1rn0cI_NcLB_8rBCh_sN2Mvla0",
   authDomain: "red-web-form-lord.firebaseapp.com",
-  databaseURL: "https://red-web-form-lord-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "red-web-form-lord",
   storageBucket: "red-web-form-lord.firebasestorage.app",
   messagingSenderId: "16458712833",
   appId: "1:16458712833:web:cd7eded319f91935fdbd00",
-  measurementId: "G-C05JYE6PWS"
 };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 // NE PAS MODIFIER EN DESSOUS
 export default firebaseConfig;
