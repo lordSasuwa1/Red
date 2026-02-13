@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flamme Éternelle - Mon Amour ❤️</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@300;400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+</head>
+<body class="theme-rouge scroll-horizontal">
+  
+  <!-- Particules de cœurs -->
+  <div id="particules-coeurs" class="particules-fond"></div>
+  <div id="petales-container" class="petales-animation"></div>
+  
+  <!-- Navigation Verticale Fixe (pour scroll horizontal) -->
+  <nav id="navigation" class="navigation-horizontale">
+    <ul class="menu-nav-horizontal">
+      <li><a href="#hero" class="nav-dot active" data-section="0" title="Accueil"><span class="icone">❤️</span></a></li>
+      <li><a href="#messages" class="nav-dot" data-section="1" title="Messages"><span class="icone">💌</span></a></li>
+      <li><a href="#dessin" class="nav-dot" data-section="2" title="Art"><span class="icone">🎨</span></a></li>
+      <li><a href="#desirs" class="nav-dot" data-section="3" title="Désirs"><span class="icone">🎁</span></a></li>
+      <li><a href="#musique" class="nav-dot" data-section="4" title="Musique"><span class="icone">🎵</span></a></li>
+      <li><a href="#galerie" class="nav-dot" data-section="5" title="Photos"><span class="icone">📸</span></a></li>
+    </ul>
+  </nav>
+  
+  <!-- Conteneur principal avec scroll horizontal -->
+  <div class="horizontal-scroll-container">
+    
+    <!-- SECTION HERO -->
+    <section id="hero" class="section-horizontal section-hero">
+      <div class="hero-contenu">
+        <h1 class="titre-principal flamme-texte">
+          <span class="ligne-titre">Ma Flamme</span>
+          <span class="ligne-titre">Éternelle</span>
+        </h1>
+        <p class="sous-titre">Tu allumes mon cœur chaque jour ❤️</p>
+        <button class="btn-scroll-next" onclick="scrollToNextSection(1)">
+          <span class="texte-btn">Découvrir notre amour</span>
+          <span class="icone-btn">→</span>
+        </button>
+      </div>
+      <div class="coeurs-decoratifs">
+        <span class="coeur-deco coeur-1">💖</span>
+        <span class="coeur-deco coeur-2">💕</span>
+        <span class="coeur-deco coeur-3">❤️</span>
+        <span class="coeur-deco coeur-4">💗</span>
+      </div>
+    </section>
+    
+    <!-- SECTION MESSAGES -->
+    <section id="messages" class="section-horizontal section-messages">
+      <div class="conteneur-section-horizontal">
+        <header class="header-section">
+          <h2 class="titre-section"><span class="icone-titre">❤️</span>Mes Nouveautés Sucrées</h2>
+          <p class="description-section">Chaque mot brûle de passion pour toi...</p>
+        </header>
+        <div class="zone-action">
+          <button id="btn-nouveau-message" class="btn-principal btn-ajouter">
+            <span class="icone">+</span><span class="texte-btn">Ajouter une Nouveauté Sucrée</span>
+          </button>
+        </div>
+        <div id="liste-messages" class="liste-messages scroll-vertical-inner"></div>
+        <div id="messages-vide" class="zone-vide">
+          <div class="icone-vide">💌</div>
+          <p>Aucune nouveauté pour le moment.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SECTION DESSIN -->
+    <section id="dessin" class="section-horizontal section-dessin">
+      <div class="conteneur-section-horizontal">
+        <header class="header-section">
+          <h2 class="titre-section"><span class="icone-titre">🎨</span>Art d'Amour</h2>
+          <p class="description-section">Laisse ta passion s'exprimer...</p>
+        </header>
+        
+        <div class="barre-outils-dessin">
+          <div class="groupe-outils">
+            <label class="label-groupe">Outils :</label>
+            <div class="boutons-outils">
+              <button class="btn-outil active" data-outil="brush"><span class="icone">🖌️</span></button>
+              <button class="btn-outil" data-outil="pencil"><span class="icone">✏️</span></button>
+              <button class="btn-outil" data-outil="spray"><span class="icone">🔥</span></button>
+              <button class="btn-outil" data-outil="eraser"><span class="icone">⬜</span></button>
+            </div>
+          </div>
+          
+          <div class="groupe-outils">
+            <label class="label-groupe">Couleur :</label>
+            <div class="palette-couleurs">
+              <button class="btn-couleur active" data-couleur="#dc143c" style="background: #dc143c;"></button>
+              <button class="btn-couleur" data-couleur="#ff4081" style="background: #ff4081;"></button>
+              <button class="btn-couleur" data-couleur="#ff80ab" style="background: #ff80ab;"></button>
+              <button class="btn-couleur" data-couleur="#ffc1cc" style="background: #ffc1cc;"></button>
+              <button class="btn-couleur" data-couleur="#ffffff" style="background: #ffffff; border: 2px solid #ccc;"></button>
+              <button class="btn-couleur" data-couleur="#000000" style="background: #000000;"></button>
+              <input type="color" id="color-picker" class="selecteur-couleur-custom" value="#dc143c">
+            </div>
+          </div>
+          
+          <div class="groupe-outils">
+            <label class="label-groupe">Taille : <span id="taille-display">5</span>px</label>
+            <input type="range" id="brush-size" min="1" max="50" value="5" class="slider-taille">
+          </div>
+          
+          <div class="groupe-outils actions-canvas">
+            <button class="btn-action-canvas" id="btn-sauvegarder-dessin"><span class="icone">💾</span></button>
+            <button class="btn-action-canvas" id="btn-telecharger-dessin"><span class="icone">📥</span></button>
+            <button class="btn-action-canvas" id="btn-effacer-canvas"><span class="icone">🗑️</span></button>
+          </div>
+        </div>
+        
+        <div class="conteneur-canvas">
+          <canvas id="canvas-dessin" width="800" height="600"></canvas>
+        </div>
+        
+        <div class="galerie-dessins-sauvegardes scroll-vertical-inner">
+          <h3 class="titre-galerie"><span class="icone">💾</span>Dessins Sauvegardés</h3>
+          <div id="liste-dessins-sauvegardes" class="grille-dessins"></div>
+          <div id="dessins-vide" class="zone-vide-dessins"><p>Aucun dessin</p></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SECTION DÉSIRS -->
+    <section id="desirs" class="section-horizontal section-desirs">
+      <div class="conteneur-section-horizontal">
+        <header class="header-section">
+          <h2 class="titre-section"><span class="icone-titre">🎁</span>Mes Désirs Enflammés</h2>
+          <p class="description-section">Ce que mon cœur désire... 😪</p>
+        </header>
+        
+        <div class="zone-controles-desirs">
+          <button id="btn-nouveau-desir" class="btn-principal btn-ajouter"><span class="icone">+</span>Ajouter</button>
+          <div class="filtres-desirs">
+            <select id="filtre-categorie" class="select-filtre">
+              <option value="tous">Toutes</option>
+              <option value="voyage">Voyage</option>
+              <option value="romantique">Romantique</option>
+              <option value="moments">Intimes</option>
+              <option value="cadeaux">Cadeaux</option>
+              <option value="experiences">Expériences</option>
+            </select>
+            <select id="filtre-statut" class="select-filtre">
+              <option value="tous">Tous</option>
+              <option value="en-attente">En attente</option>
+              <option value="realise">Réalisés ✓</option>
+            </select>
+          </div>
+        </div>
+        
+        <div id="liste-desirs" class="liste-desirs scroll-vertical-inner"></div>
+        <div id="desirs-vide" class="zone-vide"><div class="icone-vide">🎁</div><p>Aucun désir</p></div>
+        
+        <div class="statistiques-desirs">
+          <div class="stat-item"><span class="stat-nombre" id="stat-total">0</span><span class="stat-label">Total</span></div>
+          <div class="stat-item stat-realise"><span class="stat-nombre" id="stat-realise">0</span><span class="stat-label">Réalisés</span></div>
+          <div class="stat-item stat-attente"><span class="stat-nombre" id="stat-attente">0</span><span class="stat-label">En attente</span></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SECTION MUSIQUE -->
+    <section id="musique" class="section-horizontal section-musique">
+      <div class="conteneur-section-horizontal">
+        <header class="header-section">
+          <h2 class="titre-section"><span class="icone-titre">🎵</span>Notre Symphonie d'Amour</h2>
+          <p class="description-section">Les mélodies qui font battre notre cœur...</p>
+        </header>
+        
+        <div class="lecteur-principal">
+          <div class="info-piste">
+            <h3 id="titre-piste-actuelle">Aucune piste sélectionnée</h3>
+            <p id="pensee-piste-actuelle"></p>
+          </div>
+          <audio id="audio-player" controls>Votre navigateur ne supporte pas l'audio.</audio>
+        </div>
+        
+        <div id="playlist" class="playlist-container scroll-vertical-inner"></div>
+        
+        <div class="encart-conseil">
+          <span class="icone-conseil">💡</span>
+          <p>Cette symphonie a été composée pour toi... Chaque note résonne avec ma passion ❤️</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SECTION GALERIE -->
+    <section id="galerie" class="section-horizontal section-galerie">
+      <div class="conteneur-section-horizontal">
+        <header class="header-section">
+          <h2 class="titre-section"><span class="icone-titre">📸</span>Galerie de Passion</h2>
+          <p class="description-section">Nos moments capturés...</p>
+        </header>
+        
+        <div class="tabs-galerie">
+          <button class="tab-btn active" data-tab="recto" onclick="changerOngletGalerie('recto')">
+            <span class="icone">🔥</span><span class="label">Recto</span>
+          </button>
+          <button class="tab-btn" data-tab="verso" onclick="changerOngletGalerie('verso')">
+            <span class="icone">💋</span><span class="label">Verso</span>
+          </button>
+        </div>
+        
+        <div id="tab-recto" class="tab-contenu active scroll-vertical-inner">
+          <div class="zone-action-galerie">
+            <label for="upload-recto" class="btn-principal btn-upload">
+              <span class="icone">📤</span>Ajouter (Recto)
+              <input type="file" id="upload-recto" multiple accept="image/*" style="display: none;">
+            </label>
+          </div>
+          <div id="grille-recto" class="grille-photos"></div>
+          <div id="recto-vide" class="zone-vide-galerie"><div class="icone-vide">📸</div><p>Aucune photo</p></div>
+        </div>
+        
+        <div id="tab-verso" class="tab-contenu scroll-vertical-inner">
+          <div class="zone-action-galerie">
+            <label for="upload-verso" class="btn-principal btn-upload">
+              <span class="icone">📤</span>Ajouter (Verso)
+              <input type="file" id="upload-verso" multiple accept="image/*" style="display: none;">
+            </label>
+          </div>
+          <div id="grille-verso" class="grille-photos"></div>
+          <div id="verso-vide" class="zone-vide-galerie"><div class="icone-vide">📸</div><p>Aucune photo</p></div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <!-- MODALS (identiques au site bleu mais avec styling rouge) -->
+  <div id="modal-message" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-contenu">
+      <div class="modal-header">
+        <h3 class="modal-titre"><span class="icone">❤️</span><span id="titre-modal-message">Nouvelle Nouveauté</span></h3>
+        <button class="btn-fermer-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-message">
+          <div class="champ-formulaire">
+            <label for="input-message" class="label-champ">Ton Message :</label>
+            <textarea id="input-message" class="textarea-message" placeholder="Écris..." rows="6" required maxlength="500"></textarea>
+            <div class="compteur-caracteres"><span id="count-chars">0</span> / 500 caractères</div>
+          </div>
+          <div class="champ-formulaire">
+            <label for="input-tags" class="label-champ">Tags :</label>
+            <input type="text" id="input-tags" class="input-text" placeholder="Passion, Feu..."/>
+          </div>
+          <div class="champ-formulaire">
+            <label class="label-champ">Humeur :</label>
+            <div class="selecteur-humeur">
+              <input type="radio" name="humeur" value="heureux" id="humeur-1" checked>
+              <label for="humeur-1" class="btn-humeur">😊</label>
+              <input type="radio" name="humeur" value="amoureux" id="humeur-2">
+              <label for="humeur-2" class="btn-humeur">😍</label>
+              <input type="radio" name="humeur" value="tendre" id="humeur-3">
+              <label for="humeur-3" class="btn-humeur">🥰</label>
+              <input type="radio" name="humeur" value="bisou" id="humeur-4">
+              <label for="humeur-4" class="btn-humeur">😘</label>
+              <input type="radio" name="humeur" value="coeur" id="humeur-5">
+              <label for="humeur-5" class="btn-humeur">❤️</label>
+              <input type="radio" name="humeur" value="feu" id="humeur-6">
+              <label for="humeur-6" class="btn-humeur">🔥</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondaire btn-annuler-modal">Annuler</button>
+            <button type="submit" class="btn-principal"><span class="icone">❤️</span>Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modal-desir" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-contenu">
+      <div class="modal-header">
+        <h3 class="modal-titre"><span class="icone">🎁</span><span id="titre-modal-desir">Nouveau Désir</span></h3>
+        <button class="btn-fermer-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-desir">
+          <div class="champ-formulaire">
+            <label for="input-titre-desir" class="label-champ">Titre :</label>
+            <input type="text" id="input-titre-desir" class="input-text" placeholder="Ex: Dîner..." required/>
+          </div>
+          <div class="champ-formulaire">
+            <label for="input-description-desir" class="label-champ">Description :</label>
+            <textarea id="input-description-desir" class="textarea-message" rows="4" required></textarea>
+          </div>
+          <div class="champ-formulaire">
+            <label class="label-champ">Priorité :</label>
+            <div class="selecteur-priorite">
+              <input type="radio" name="priorite" value="1" id="prio-1">
+              <label for="prio-1" class="btn-priorite">★</label>
+              <input type="radio" name="priorite" value="2" id="prio-2">
+              <label for="prio-2" class="btn-priorite">★★</label>
+              <input type="radio" name="priorite" value="3" id="prio-3" checked>
+              <label for="prio-3" class="btn-priorite">★★★</label>
+              <input type="radio" name="priorite" value="4" id="prio-4">
+              <label for="prio-4" class="btn-priorite">★★★★</label>
+              <input type="radio" name="priorite" value="5" id="prio-5">
+              <label for="prio-5" class="btn-priorite">★★★★★</label>
+            </div>
+          </div>
+          <div class="champ-formulaire">
+            <label for="select-categorie-desir" class="label-champ">Catégorie :</label>
+            <select id="select-categorie-desir" class="input-text">
+              <option value="voyage">🌍 Voyage</option>
+              <option value="romantique">💐 Romantique</option>
+              <option value="moments">😴 Intimes</option>
+              <option value="cadeaux">🎁 Cadeaux</option>
+              <option value="experiences">✨ Expériences</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondaire btn-annuler-modal">Annuler</button>
+            <button type="submit" class="btn-principal"><span class="icone">❤️</span>Sauvegarder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modal-photo" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-contenu modal-photo">
+      <div class="modal-header">
+        <h3 class="modal-titre"><span class="icone">📸</span>Modifier</h3>
+        <button class="btn-fermer-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-photo">
+          <div class="preview-photo-modal">
+            <img id="preview-modal-photo" src="" alt="Aperçu">
+          </div>
+          <div class="champ-formulaire">
+            <label for="input-legende-photo" class="label-champ">Légende :</label>
+            <input type="text" id="input-legende-photo" class="input-text" required/>
+          </div>
+          <div class="champ-formulaire">
+            <label for="input-date-photo" class="label-champ">Date :</label>
+            <input type="date" id="input-date-photo" class="input-text" required/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondaire btn-annuler-modal">Annuler</button>
+            <button type="submit" class="btn-principal"><span class="icone">❤️</span>Sauvegarder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-contenu">
+      <button class="btn-fermer-lightbox">×</button>
+      <img id="lightbox-image" src="" alt="Photo">
+      <div class="lightbox-info">
+        <p id="lightbox-date" class="lightbox-date"></p>
+        <p id="lightbox-legende" class="lightbox-legende"></p>
+      </div>
+      <div class="lightbox-navigation">
+        <button class="btn-nav btn-prev">‹</button>
+        <button class="btn-nav btn-next">›</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+    import { getStorage } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
+    import firebaseConfig from './firebase-config.js';
+    
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+    window.storage = getStorage(app);
+  </script>
+  <script src="script.js" type="module"></script>
+</body>
+</html>
